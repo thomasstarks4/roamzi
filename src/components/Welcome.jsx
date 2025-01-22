@@ -4,11 +4,7 @@ const Welcome = (props) => {
   const [newUser, setNewUser] = useState(false);
   const [initialQuestionAnswered, setInitialQuestionAnswered] = useState(false);
   return (
-    <div
-      className={`bg-gradient-to-b from-teal-500 to-teal-700 text-white ${
-        initialQuestionAnswered ? "" : "h-screen"
-      }`}
-    >
+    <div className="text-white h-screen">
       <h1 className="font-extrabold bg-gradient-to-b from-teal-400 to-teal-500 text-white p-5 text-center">
         Welcome to Roamzi!
       </h1>
@@ -21,6 +17,7 @@ const Welcome = (props) => {
             src={logo}
             alt="Logo"
           />
+
           <h2 className="mb-2 font-extrabold">
             Do you already have a trip planned?
           </h2>
@@ -47,19 +44,33 @@ const Welcome = (props) => {
 
       {newUser && (
         <div className="col">
-          <br />
-          <br />
-          <img
-            className="w-32 h-auto mx-auto mb-5 transition-transform duration-1000 hover:scale-150 rounded-full"
-            src={logo}
-            alt="Logo"
-          />
-          <br />
-          <div className="bg-emerald-800 outline outline-sky-300">
-            <div className="text-center text-xl font-extrabold p-5">
+          <div className="">
+            <img
+              className="w-32 h-auto mx-auto my-10 transition-transform duration-1000 hover:scale-150 rounded-full"
+              src={logo}
+              alt="Logo"
+            />
+            <div className="text-center">
+              <button
+                onClick={() => {
+                  props.setCreateTrip(true);
+                  props.setShowWelcome(false);
+                }}
+                type="button"
+                className="bg-gradient-to-b from-blue-600 to-blue-950 
+                        mx-auto mb-5 text-white px-3 py-2 rounded
+                        transition-all duration-500
+                        hover:font-extrabold hover:px-5 hover:py-3 hover:text-lg"
+              >
+                Get Started Now
+              </button>
+            </div>
+          </div>
+          <div className="bg-emerald-800 outline outline-sky-300 p-5">
+            <div className="text-center text-xl font-extrabold p-3 mx-auto w-4/12 bg-gradient-to-b from-teal-600 to-teal-800 rounded">
               What is Roamzi?
             </div>
-            <div className="text-white text-center w-10/12 mx-auto p-5">
+            <div className="text-white text-center w-9/12 mx-auto mt-3 p-5 bg-slate-500 rounded-lg">
               <b>Roamzi</b> is a collaborative trip-planning platform designed
               to make group travel easy, organized, and enjoyable! Whether
               you're planning a getaway with friends or family, Roamzi offers a
@@ -69,7 +80,7 @@ const Welcome = (props) => {
             </div>
           </div>
           <div className="bg-emerald-800 outline outline-sky-300 p-5">
-            <div className="text-lg text-white text-center font-bold mb-5">
+            <div className="text-lg text-white text-center font-bold mb-5 mx-auto w-4/12 bg-gradient-to-b from-teal-600 to-teal-800 rounded">
               Interactive Trip Planning
             </div>
             <div className="text-white text-center w-10/12 mx-auto">
@@ -94,8 +105,8 @@ const Welcome = (props) => {
               </div>
             </div>
           </div>
-          <div className="bg-emerald-800 outline outline-sky-300 p-5">
-            <div className=" text-lg text-white text-center font-bold mb-5">
+          <div className="bg-emerald-800 outline outline-sky-300 p-5 ">
+            <div className=" text-lg text-white text-center font-bold mb-5 mx-auto w-4/12 bg-gradient-to-b from-teal-600 to-teal-800 rounded">
               User Profiles with Avatars
             </div>
             <div className="text-white text-center w-10/12 mx-auto">
@@ -116,7 +127,7 @@ const Welcome = (props) => {
             </div>
           </div>
           <div className="bg-emerald-800 outline outline-sky-300 p-5">
-            <div className="text-lg text-white text-center font-bold p-5">
+            <div className="text-lg text-white text-center font-bold mb-5 mx-auto w-4/12 bg-gradient-to-b from-teal-600 to-teal-800 rounded">
               Secure and Temporary Data Handling
             </div>
             <div className="text-white text-center w-10/12 mx-auto">
@@ -124,7 +135,8 @@ const Welcome = (props) => {
                 <div className="flex justify-center gap-4">
                   <div className="w-4/12 outline outline-sky-300 p-5">
                     Roamzi ensures complete privacy and security by hashing
-                    passwords, making them unreadable to unauthorized users.
+                    passwords, making them unreadable to other members of your
+                    trip.
                   </div>
                   <div className="w-4/12 outline outline-sky-300 p-5">
                     All user data is stored temporarily and exclusively in a
@@ -141,7 +153,7 @@ const Welcome = (props) => {
             </div>
           </div>
           <div className="bg-emerald-800 outline outline-sky-300 p-5">
-            <div className=" text-lg text-white text-center font-bold mb-5 p-5">
+            <div className=" text-lg text-white text-center font-bold mb-5 mx-auto w-4/12 bg-gradient-to-b from-teal-600 to-teal-800 rounded">
               Anonymous Voting and Privacy
             </div>
             <div className="text-white text-center w-10/12 mx-auto">
@@ -163,7 +175,22 @@ const Welcome = (props) => {
             </div>
           </div>
           <br />
-          <div className="text-center bg-bl text-white">
+          <div className="text-center">
+            <button
+              onClick={() => {
+                props.setCreateTrip(true);
+                props.setShowWelcome(false);
+              }}
+              type="button"
+              className="bg-gradient-to-b from-blue-600 to-blue-950 
+         mx-auto mb-5 text-white px-3 py-2 rounded
+         transition-all duration-500
+         hover:font-extrabold hover:px-5 hover:py-3 hover:text-lg"
+            >
+              Get Started Now
+            </button>
+          </div>
+          <div className="text-center bg-gradient-to-b from-teal-600 to-teal-950 col-1 text-white py-2">
             We hope you enjoy using Roamzi!
           </div>
         </div>

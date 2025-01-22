@@ -2,6 +2,7 @@ import { useState } from "react";
 import Welcome from "./components/Welcome";
 import LoadTrip from "./components/LoadTrip";
 import EditTrip from "./components/EditTrip";
+import CreateTrip from "./components/CreateTrip";
 
 function App() {
   const [userRegistered, setUserRegistered] = useState(false);
@@ -21,6 +22,7 @@ function App() {
   }); // This will be the master trip object that will be passed down to all components
 
   const [editTrip, setEditTrip] = useState(false);
+  const [createTrip, setCreateTrip] = useState(false);
   const setMasterUser = (user) => {
     setSuperUser(user);
   };
@@ -37,9 +39,19 @@ function App() {
           setUserRegistered={setUserRegistered}
           setMasterUser={setMasterUser}
           setShowWelcome={setShowWelcome}
+          createTrip={createTrip}
+          setCreateTrip={setCreateTrip}
         />
       ) : editTrip ? (
         <EditTrip trip={trip} setMasterTrip={setMasterTrip} />
+      ) : createTrip ? (
+        <CreateTrip
+          trip={trip}
+          setMasterTrip={setMasterTrip}
+          masterUser={superUser}
+          setMasterUser={setMasterUser}
+          setShowWelcome={setShowWelcome}
+        />
       ) : (
         <LoadTrip
           trip={trip}
